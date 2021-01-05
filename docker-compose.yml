@@ -18,11 +18,11 @@ services:
       - 8000:8000
     depends_on:
       - db
-  # ng:
-  #   container_name: ng
-  #   build: work-reporting-frontend
-  #   ports: 
-  #     - "8080:8000"
+  ng:
+    container_name: ng_container
+    build: work-reporting-frontend
+    ports: 
+      - "8080:8000"
 
 volumes:
   postgres_data:
