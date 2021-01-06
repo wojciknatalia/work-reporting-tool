@@ -20,4 +20,8 @@ export class ApiService {
   public postTask(newTask: Task) {
     return this.http.post(`${this.API_URL}/tasks`, newTask);
   }
+
+  public deleteTask(id: number) {
+    return this.http.delete(`${this.API_URL}/tasks/${id}`);
+  }
 }
