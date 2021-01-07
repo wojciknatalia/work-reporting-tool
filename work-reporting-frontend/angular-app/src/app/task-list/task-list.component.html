@@ -3,11 +3,13 @@
 <ul>
     <li *ngFor="let task of tasks$ | async">
       <ul>
+        <li>id: {{ task.id }}</li>
         <li>Title: {{ task.title }}</li>
         <li>Date: {{ task.date }}</li>
         <li>Hours: {{ task.hours }}</li>
         <li>Employee (email): {{ task.employee_email }}</li>
       </ul>
+      <button (click)="deleteTask(task.id)">X</button>
     </li>
   </ul>
 

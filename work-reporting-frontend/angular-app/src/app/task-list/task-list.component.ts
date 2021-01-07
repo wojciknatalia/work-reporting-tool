@@ -35,6 +35,14 @@ export class TaskListComponent implements OnInit {
     this.tasks$ = this.apiService.getTasks();
   }
 
+  public deleteTask(id: number) {
+   this.apiService.deleteTask(id).subscribe(
+    () => {
+      this.getTasks();
+    }
+  )
+  }
+
   onSubmit() {
     // Create the Task.
     this.apiService.postTask(this.task_form.value)
