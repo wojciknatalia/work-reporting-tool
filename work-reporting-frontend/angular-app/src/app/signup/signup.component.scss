@@ -1,0 +1,33 @@
+mat-form-field {
+    display: block;
+    margin: auto;
+    width: 80%;
+    padding: 1em 0;
+}
+
+mat-card {
+    padding: 0;
+    padding-bottom: 4em;
+    max-width: 700px;
+    margin:auto;
+}
+
+h1 {
+    padding: 1em;
+    font-weight: 400;
+    color: #465e92;
+}
+
+.signup-form{    
+    padding-top: 3em;
+    text-align: center;
+    background: rgba(70, 94, 146, 0.05);
+    height: 100%;
+}
+button{
+    background-color:  rgb(70, 94, 146);
+    color: white;
+}
+.fields{
+    padding-bottom: 3em;
+}

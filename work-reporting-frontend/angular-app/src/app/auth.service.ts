@@ -40,10 +40,10 @@ export class AuthService {
     );
   }
 
-  signup(username: string, email: string, password1: string, password2: string) {
+  signup(signupData: SignupData) {
     return this.http.post(
       this.apiRoot.concat('signup/'),
-      { username, email, password1, password2 }
+      signupData
     ).pipe(
       tap(response => this.setSession(response)),
       shareReplay(),
@@ -131,4 +131,10 @@ interface JWTPayload {
   username: string;
   email: string;
   exp: number;
+}
+interface SignupData {
+  username: string;
+  email: string;
+  password1: string;
+  password2: string;
 }

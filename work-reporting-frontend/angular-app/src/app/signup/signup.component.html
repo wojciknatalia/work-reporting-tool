@@ -1,13 +1,43 @@
-<div style="text-align:center">
-    <h1>
-      Signup
-    </h1>
+<div [formGroup]="form" class="signup-form">
+  <mat-card>
+    <h1>Signup</h1>
+    <div class="fields">
+    <mat-form-field>
+      <input formControlName="username" type="text" ngDefaultControl matInput placeholder="username">
+      <mat-error *ngIf="form.get('username')?.hasError('required')">
+        This field is required
+      </mat-error>
+      <mat-error *ngIf="form.get('username')?.hasError('error')">
+        Invalid username
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input formControlName="email" type="email" ngDefaultControl matInput placeholder="email">
+      <mat-error *ngIf="form.get('email')?.hasError('required')">
+        This field is required
+      </mat-error>
+      <mat-error *ngIf="form.get('email')?.hasError('error')">
+        Invalid email
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input formControlName="password1" type="password" ngDefaultControl matInput placeholder="password">
+      <mat-error *ngIf="form.get('password1')?.hasError('required')">
+        This field is required
+      </mat-error>
+      <mat-error *ngIf="form.get('password1')?.hasError('error')">
+        Invalid password
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input formControlName="password2" type="password" ngDefaultControl matInput placeholder="repeat password">
+      <mat-error *ngIf="form.get('password2')?.hasError('required')">
+        This field is required
+      </mat-error>
+    </mat-form-field>
   </div>
-
-  <input #username type='text' placeholder='Username'>
-  <input #email type='text' placeholder='Email'>
-  <input #password1 type='password' placeholder='Password'>
-  <input #password2 type='password' placeholder='Confirm password'>
-  <button (click)="signup(username.value, email.value, password1.value, password2.value)">Signup</button>
-  <p>{{ error?.message }}</p>
-  <p *ngIf="error">{{ error?.error | json }}</p>
+  <div mat-dialog-actions>
+    <button  mat-raised-button (click)="signup()" cdkFocusInitial>Signup</button>
+  </div>
+</mat-card>
+</div>
