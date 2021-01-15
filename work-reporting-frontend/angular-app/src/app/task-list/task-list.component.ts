@@ -32,7 +32,8 @@ export class TaskListComponent implements OnInit {
   }
 
   public getTasks() {
-    this.tasks$ = this.apiService.getTasks();
+    let email = this.authService.getEmail();
+    this.tasks$ = this.apiService.getTasks(email);
   }
 
   public deleteTask(id: number) {

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Task } from './task';
 
@@ -13,8 +13,9 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
 
-  public getTasks(): Observable<Task[]> {
-    return this.http.get<Task[]>(`${this.API_URL}/tasks`);
+  public getTasks(userEmail: string): Observable<Task[]> {
+    const params = new HttpParams().append('email', userEmail);
+    return this.http.get<Task[]>(`${this.API_URL}/tasks`, { params });
   }
 
   public postTask(newTask: Task) {
