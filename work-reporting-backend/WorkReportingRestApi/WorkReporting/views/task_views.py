@@ -13,8 +13,8 @@ from WorkReporting.serializers import TaskSerializer
 @api_view(['GET', 'POST'])
 def task_list(request):
     if request.method == 'GET':
-        tasks = Task.objects.all()
-        
+        email = request.GET.get('email')
+        tasks = Task.objects.all().filter(employee_email=email)
         tasks_serializer = TaskSerializer(tasks, many=True)
         return JsonResponse(tasks_serializer.data, safe=False)
     
