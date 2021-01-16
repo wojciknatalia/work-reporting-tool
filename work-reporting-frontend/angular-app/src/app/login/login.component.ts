@@ -38,6 +38,6 @@ export class LoginComponent implements OnInit {
   }
   redirectToSignUp() {
     this.router.navigate(['signup']);
-}
+  }
 
 }

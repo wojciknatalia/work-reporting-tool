@@ -1,0 +1,7 @@
+<mat-toolbar>
+  <span>work reporting tool</span>
+  <span class="example-spacer"></span>
+  <div class="logout" *ngIf="isUserLoggedIn()">
+    <button mat-button (click)="logout()">Log out</button>
+  </div>
+</mat-toolbar>
