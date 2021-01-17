@@ -38,9 +38,9 @@
   <!-- Delete Column -->
   <ng-container matColumnDef="action">
     <th mat-header-cell *matHeaderCellDef> Action </th>
-    <td mat-cell *matCellDef="let task"> 
+    <td mat-cell *matCellDef="let task">
       <button (click)="deleteTask(task.id)">Delete</button>
-      <button (click)="deleteTask(task.id)">Edit</button>
+      <button (click)="openDialog('Edit',task)">Edit</button>
     </td>
   </ng-container>
 
@@ -72,4 +72,4 @@
       </div>
     </mat-card>
   </form>
-  </div>
+</div>

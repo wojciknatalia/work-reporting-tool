@@ -26,6 +26,6 @@ export class ApiService {
   }
 
   public updateTask(id: number, updateTask: Task) {
-    return this.http.post('${this.API_URL}/tasks/${id}', updateTask);
+    return this.http.put(`${this.API_URL}/tasks/${id}`, updateTask);
   }
 }

@@ -5,6 +5,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from '../api.service';
 import { Task } from '../task'
 import { AuthService } from '../auth.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogBoxEditComponent } from '../dialog-box-edit/dialog-box-edit.component';
 
 @Component({
   selector: 'app-task-list',
@@ -16,7 +18,7 @@ export class TaskListComponent implements OnInit {
   tasks$: Observable<Task[]>;
   task_form: FormGroup;
 
-  constructor(private apiService: ApiService, private authService: AuthService, private form_builder: FormBuilder) { }
+  constructor(public dialog: MatDialog, private apiService: ApiService, private authService: AuthService, private form_builder: FormBuilder) { }
 
   ngOnInit(): void {
     this.getTasks();
@@ -45,6 +47,23 @@ export class TaskListComponent implements OnInit {
   )
   }
 
+  openDialog(action,obj) {
+    obj.action = action;
+    const dialogRef = this.dialog.open(DialogBoxEditComponent, {
+      width: '250px',
+      data:obj
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result.event == 'Edit'){
+        this.onEdit(result.data);
+      }else if(result.event == 'New'){
+        this.onSubmit();
+      }
+
+    });
+  }
+
   onSubmit() {
     // Create the Task.
     this.apiService.postTask(this.task_form.value)
@@ -56,9 +75,10 @@ export class TaskListComponent implements OnInit {
       )
   }
 
-  onEdit(id: number) {
+  onEdit(data) {
+    //this.deleteTask(data.id);
     // Edit the Task.
-    this.apiService.updateTask(id,this.task_form.value)
+    this.apiService.updateTask(data.id,data)
       .subscribe(
         (response) => {
           console.log(response);

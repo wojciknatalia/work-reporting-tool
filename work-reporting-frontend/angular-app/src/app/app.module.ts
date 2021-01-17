@@ -10,6 +10,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import { ListComponent } from './list/list.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { DialogBoxEditComponent } from './dialog-box-edit/dialog-box-edit.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     ListComponent,
     LoginComponent,
     SignupComponent,
-    NavbarComponent
+    NavbarComponent,
+    DialogBoxEditComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     MatCardModule,
     MatToolbarModule,
     MatSnackBarModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
   ],
   providers: [
     AuthService,
