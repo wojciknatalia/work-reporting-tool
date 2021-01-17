@@ -4,16 +4,15 @@
 
   <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
-
-  <!-- id Column -->
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> ID. </th>
-    <td mat-cell *matCellDef="let task"> {{task.id}} </td>
+  <!-- Employee Column -->
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> Employee </th>
+    <td mat-cell *matCellDef="let task"> {{task.employee_email}} </td>
   </ng-container>
 
   <!-- Title Column -->
   <ng-container matColumnDef="title">
-    <th mat-header-cell *matHeaderCellDef> Title </th>
+    <th mat-header-cell *matHeaderCellDef> Task </th>
     <td mat-cell *matCellDef="let task"> {{task.title}} </td>
   </ng-container>
 
@@ -29,18 +28,12 @@
     <td mat-cell *matCellDef="let task"> {{task.hours}} </td>
   </ng-container>
 
-  <!-- Employee Column -->
-  <ng-container matColumnDef="email">
-    <th mat-header-cell *matHeaderCellDef> Employee </th>
-    <td mat-cell *matCellDef="let task"> {{task.employee_email}} </td>
-  </ng-container>
-
   <!-- Delete Column -->
   <ng-container matColumnDef="action">
-    <th mat-header-cell *matHeaderCellDef> Action </th>
-    <td mat-cell *matCellDef="let task">
-      <button (click)="deleteTask(task.id)">Delete</button>
-      <button (click)="openDialog('Edit',task)">Edit</button>
+    <th mat-header-cell *matHeaderCellDef class="action"> Action </th>
+    <td mat-cell *matCellDef="let task" class="action-link">
+      <button mat-button color="primary" (click)="deleteTask(task.id)">Delete</button>
+      <button mat-button color="primary" (click)="openDialog('Edit',task)">Edit</button>
     </td>
   </ng-container>
 
@@ -50,26 +43,7 @@
 </table>
 
 <div class="add">
-  <form [formGroup]="task_form" (ngSubmit)="onSubmit()">
-    <mat-card>
-      <label for="title">Title </label>
-      <mat-form-field>
-        <input type="text" formControlName="title" ngDefaultControl matInput>
-      </mat-form-field>
-      <br>
-      <label for="hours">Hours </label>
-      <mat-form-field>
-        <input type="number" formControlName="hours" ngDefaultControl matInput>
-      </mat-form-field>
-      <br>
-      <label for="employee_email">Employee email (readonly) </label>
-      <mat-form-field>
-        <input type="email" formControlName="employee_email" ngDefaultControl matInput readonly>
-      </mat-form-field>
-      <br>
-      <div class="center">
-        <button mat-raised-button id="submit" type="submit" [disabled]="task_form.invalid">Add Task</button>
-      </div>
-    </mat-card>
+  <form [formGroup]="task_form">
+    <button id="submit" mat-raised-button (click)="openDialog('Add new task',task_form.value)">Add new task</button>
   </form>
 </div>

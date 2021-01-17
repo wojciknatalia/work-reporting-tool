@@ -14,7 +14,7 @@ import { DialogBoxEditComponent } from '../dialog-box-edit/dialog-box-edit.compo
   styleUrls: ['./task-list.component.scss']
 })
 export class TaskListComponent implements OnInit {
-  columnsToDisplay = ['id','title','date','hours','email','action']
+  columnsToDisplay = ['email','title','date','hours','action']
   tasks$: Observable<Task[]>;
   task_form: FormGroup;
 
@@ -57,16 +57,16 @@ export class TaskListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if(result.event == 'Edit'){
         this.onEdit(result.data);
-      }else if(result.event == 'New'){
-        this.onSubmit();
+      }else if(result.event == 'Add new task'){
+        this.onSubmit(result.data);
       }
 
     });
   }
 
-  onSubmit() {
+  onSubmit(data) {
     // Create the Task.
-    this.apiService.postTask(this.task_form.value)
+    this.apiService.postTask(data)
       .subscribe(
         (response) => {
           console.log(response);

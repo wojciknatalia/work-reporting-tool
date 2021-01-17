@@ -4,58 +4,25 @@ table{
     margin-right: auto;
 }
 
-:host{
-    background: rgba(70, 94, 146,0.1);
-}
-
-mat-form-field {
-    display: block;
-    width: 90%;
-    margin: auto;
-    padding: 0em 5;
-    text-align: center;
-}
-
-mat-card {
-    padding: 0;
-    padding-bottom: 2em;
-    max-width: 25%; //szerokość tabeli
-    margin:auto;
-}
-.fields{
-    padding-bottom: 3em;
-}
 h1 {
     padding: 1em;
     font-weight: 400;
     color: #465e92;
 }
 
-.login-form{    
-    padding-top: 3em;
-    text-align: center;
-    background: rgba(70, 94, 146, 0.05);
-    height: auto; // "szare" tło
-}
 button#submit{
     background-color:  rgb(70, 94, 146);
     color: white;
 }
-.signup {
-    color: gray;
-}
-hr {
-    margin: 2em; 
-}
-.center {
-    margin: 0;
-    position: absolute;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
 
-label {
-    display: block;
+h2 {
     text-align: center;
+    margin-top: 20px;
+}
+.add {
+    text-align: center;
+    margin-top: 20px;
+}
+.action {
+    padding: 15px;
 }
