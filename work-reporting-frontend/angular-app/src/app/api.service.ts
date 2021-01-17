@@ -12,7 +12,6 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-
   public getTasks(userEmail: string): Observable<Task[]> {
     const params = new HttpParams().append('email', userEmail);
     return this.http.get<Task[]>(`${this.API_URL}/tasks`, { params });
@@ -24,5 +23,9 @@ export class ApiService {
 
   public deleteTask(id: number) {
     return this.http.delete(`${this.API_URL}/tasks/${id}`);
+  }
+
+  public updateTask(id: number, updateTask: Task) {
+    return this.http.post('${this.API_URL}/tasks/${id}', updateTask);
   }
 }

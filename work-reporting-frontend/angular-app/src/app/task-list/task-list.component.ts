@@ -12,6 +12,7 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./task-list.component.scss']
 })
 export class TaskListComponent implements OnInit {
+  columnsToDisplay = ['id','title','date','hours','email','action']
   tasks$: Observable<Task[]>;
   task_form: FormGroup;
 
@@ -47,6 +48,17 @@ export class TaskListComponent implements OnInit {
   onSubmit() {
     // Create the Task.
     this.apiService.postTask(this.task_form.value)
+      .subscribe(
+        (response) => {
+          console.log(response);
+          this.getTasks();
+        }
+      )
+  }
+
+  onEdit(id: number) {
+    // Edit the Task.
+    this.apiService.updateTask(id,this.task_form.value)
       .subscribe(
         (response) => {
           console.log(response);
