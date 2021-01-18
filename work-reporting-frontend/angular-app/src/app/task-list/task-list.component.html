@@ -1,5 +1,5 @@
 <h2>Tasks list</h2>
-<input type="button" value="Download PDF" class="btn btn-success" (click)="savePDF()">  
+<!-- <input type="button" value="Download PDF" class="btn btn-success" (click)="savePDF()">   -->
 
 <table mat-table [dataSource]="tasks$" class="mat-elevation-z8">
 
@@ -46,5 +46,6 @@
 <div class="add">
   <form [formGroup]="task_form">
     <button id="submit" mat-raised-button (click)="openDialog('Add new task',task_form.value)">Add new task</button>
+    <button mat-raised-button value="Download PDF" (click)="savePDF()">Generate report (PDF)</button>
   </form>
 </div>
