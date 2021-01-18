@@ -20,6 +20,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DialogBoxEditComponent } from './dialog-box-edit/dialog-box-edit.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { DialogBoxEditComponent } from './dialog-box-edit/dialog-box-edit.compon
     LoginComponent,
     SignupComponent,
     NavbarComponent,
-    DialogBoxEditComponent
+    DialogBoxEditComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
