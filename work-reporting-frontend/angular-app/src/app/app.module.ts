@@ -21,6 +21,8 @@ import { SignupComponent } from './signup/signup.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DialogBoxEditComponent } from './dialog-box-edit/dialog-box-edit.component';
 import { ContactComponent } from './contact/contact.component';
+import { MarkerService } from './marker.service';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { ContactComponent } from './contact/contact.component';
     SignupComponent,
     NavbarComponent,
     DialogBoxEditComponent,
-    ContactComponent
+    ContactComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +54,7 @@ import { ContactComponent } from './contact/contact.component';
   providers: [
     AuthService,
     AuthGuard,
+    MarkerService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
