@@ -3,5 +3,6 @@ export interface Task {
     title: string;
     date: Date;
     hours: number;
-    employee_email: string
+    employee_email: string;
+    employee: any;
 }

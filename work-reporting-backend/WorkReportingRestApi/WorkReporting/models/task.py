@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.conf import settings
 
 from datetime import date
 
@@ -7,7 +9,8 @@ class Task(models.Model):
     date = models.DateField(default=date.today)
     hours = models.DecimalField(max_digits=6, decimal_places=2)
     employee_email = models.EmailField(max_length=70)
-
+    employee = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user')
+    
     # Meta data about the database table.
     class Meta:
         # Set the table name.
