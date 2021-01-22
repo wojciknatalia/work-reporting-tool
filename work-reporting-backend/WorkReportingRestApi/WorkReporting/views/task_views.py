@@ -15,7 +15,10 @@ from django.contrib.auth.models import User
 def task_list(request):
     if request.method == 'GET':
         email = request.GET.get('email')
-        tasks = Task.objects.all().filter(employee_email=email)
+        if request.user.is_staff:
+            tasks = Task.objects.all()
+        else:
+            tasks = Task.objects.all().filter(employee_email=email)
         tasks_serializer = TaskSerializer(tasks, many=True)
         return JsonResponse(tasks_serializer.data, safe=False)
     
