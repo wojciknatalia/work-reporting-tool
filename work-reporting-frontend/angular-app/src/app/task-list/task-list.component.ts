@@ -81,7 +81,8 @@ export class TaskListComponent implements OnInit {
 
   onSubmit(data) {
     // Create the Task.
-    this.apiService.postTask(data)
+    let email = this.authService.getEmail();
+    this.apiService.postTask(data, email)
       .subscribe(
         (response) => {
           console.log(response);

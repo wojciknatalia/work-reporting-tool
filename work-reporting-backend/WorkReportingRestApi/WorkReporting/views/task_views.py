@@ -7,22 +7,34 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
 from WorkReporting.models import Task
-from WorkReporting.serializers import TaskSerializer
+from WorkReporting.serializers import TaskSerializer, UserSerializer
+from django.contrib.auth.models import User
 
 
 @api_view(['GET', 'POST'])
 def task_list(request):
     if request.method == 'GET':
         email = request.GET.get('email')
-        tasks = Task.objects.all().filter(employee_email=email)
+        if request.user.is_staff:
+            tasks = Task.objects.all()
+        else:
+            tasks = Task.objects.all().filter(employee_email=email)
         tasks_serializer = TaskSerializer(tasks, many=True)
         return JsonResponse(tasks_serializer.data, safe=False)
     
     if request.method == 'POST':
-        serializer = TaskSerializer(data=request.data)
+        email = request.data.get('email')
+        task_raw = request.data.get('task')
+        qs = User.objects.all().filter(email=email).first()
+        user_id = UserSerializer(qs).data.get('id')
+        task = Task(title=task_raw.get('title'), hours=task_raw.get('hours'), employee_email=task_raw.get('employee_email'), employee=qs)
+        task_raw['employee'] = user_id
+        serializer = TaskSerializer(data=task_raw)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            print(serializer.errors)
 
 @api_view(['GET', 'DELETE', 'PUT'])
 def task_detail(request, pk):

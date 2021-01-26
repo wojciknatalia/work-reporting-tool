@@ -17,8 +17,8 @@ export class ApiService {
     return this.http.get<Task[]>(`${this.API_URL}/tasks`, { params });
   }
 
-  public postTask(newTask: Task) {
-    return this.http.post(`${this.API_URL}/tasks`, newTask);
+  public postTask(newTask: Task, userEmail: string) {
+    return this.http.post(`${this.API_URL}/tasks`, { task: newTask, email: userEmail });
   }
 
   public deleteTask(id: number) {
