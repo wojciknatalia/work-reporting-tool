@@ -1,0 +1,46 @@
+:host{
+    background: rgba(70, 94, 146,0.1);
+}
+
+mat-form-field {
+    display: block;
+    width: 80%;
+    margin: auto;
+    padding: 1em 0;
+}
+
+mat-card {
+    padding: 0;
+    padding-bottom: 4em;
+    max-width: 700px;
+    margin:auto;
+}
+.fields{
+    padding-bottom: 3em;
+}
+h1 {
+    padding: 1em;
+    font-weight: 400;
+    color: #465e92;
+}
+
+.login-form{    
+    padding-top: 3em;
+    text-align: center;
+    background: rgba(70, 94, 146, 0.05);
+    height: 100%;
+}
+button#submit{
+    background-color:  rgb(70, 94, 146);
+    color: white;
+}
+.signup {
+    color: gray;
+}
+hr {
+    margin: 2em; 
+}
+
+.mat-raised-button {
+    margin: auto !important;
+}

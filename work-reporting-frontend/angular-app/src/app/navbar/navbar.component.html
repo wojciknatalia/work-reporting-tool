@@ -1,0 +1,12 @@
+<mat-toolbar>
+  <span><button mat-button (click)="list()">
+      <h1>Work reporting tool</h1>
+    </button></span>
+  <span class="example-spacer"></span>
+  <div *ngIf="isUserLoggedIn()">
+    <button mat-button (click)="contact()">Contact</button>
+  </div>
+  <div class="logout" *ngIf="isUserLoggedIn()">
+    <button mat-button (click)="logout()">Log out</button>
+  </div>
+</mat-toolbar>

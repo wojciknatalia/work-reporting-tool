@@ -1,0 +1,27 @@
+  <div [formGroup]="form" class="login-form">
+    <mat-card>
+      <h1>Login</h1>
+      <div class="fields">
+      <mat-form-field>
+        <input formControlName="username" type="text" ngDefaultControl matInput placeholder="username">
+        <mat-error *ngIf="form.get('username')?.hasError('required')">
+          This field is required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="password" type="password" ngDefaultControl matInput placeholder="password">
+        <mat-error *ngIf="form.get('password')?.hasError('required')">
+          This field is required
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+      <button id="submit" mat-raised-button (click)="login()" cdkFocusInitial>Log in</button>
+    </div>
+    <hr>
+    <div class="signup">
+      <h4>Don't have account?</h4>
+      <button mat-raised-button (click)="redirectToSignUp()">Sign up</button>
+    </div>
+  </mat-card>
+</div>
