@@ -16,12 +16,12 @@ Work Reporting Tool is Dockerized Django Back-end API with Angular Front-end. It
 
 1. [About](#About)
 2. [Getting Setup](#Getting-Setup)
-  1. [Prerequisites](#Prerequisites)
-  2. [Installation](#Installation)
+   1. [Prerequisites](#Prerequisites)
+   2. [Installation](#Installation)
 4. [Architecture](#Architecture)
-  1. [Base URL](#Base-URL)
-  2. [Authorization overview](#Authorization-overview)
-  3. [Endpoints list](#Endpoints-list)
+   1. [Base URL](#Base-URL)
+   2. [Authorization overview](#Authorization-overview)
+   3. [Endpoints list](#Endpoints-list)
 
 ## Getting Setup
 ### Prerequisites
