@@ -1,12 +1,53 @@
-# work-reporting-tool
-Dockerized Django Back-end API with Angular Front-end
 
-**v1.0.0**
+# work-reporting-tool
+
+## About
+Work Reporting Tool is Dockerized Django Back-end API with Angular Front-end. It is used to manage timesheets. Work Reporting Tool allows users to add, edit and delete user tasks. User data is safe thanks to authentication and authorization mechanisms.
+
+**v1.0.0 - 26.01.2021**
 
  - Register and Login using JWT auth,
  - Basic API with Django REST Framework,
  - Angular App connected to REST API,
  - Lightweight and efficient Docker image
+
+
+## Table of Contents
+
+1. [About](##About)
+2. [Getting Setup](##Getting-Setup)
+	2.1. [Prerequisites](###Prerequisites)
+	2.2. [Installation](###Installation)
+4. [Architecture](##Architecture)
+	3.1. [Base URL](###Base-URL)
+	3.2. [Authorization overview](###Authorization-overview)
+	3.3. [Endpoints list](###Endpoints-list)
+
+## Getting Setup
+### Prerequisites
+Complete all Work-Reporting-Tool dependencies.
+- Django (*[download](https://www.djangoproject.com/download/)*)
+- Visual Studio Code (*[download](https://code.visualstudio.com/)*)
+- Docker (*[download](https://docs.docker.com/docker-for-windows/install/)*)
+- Node (*[download](https://nodejs.org/en/download/)*)
+- Angular-cli (*[download](https://cli.angular.io/)*)
+
+### Installation
+Navigate to where you want your project to be contained.
+````
+git clone https://github.com/wojciknatalia/work-reporting-tool.git
+````
+Open cmd in clonned repository and type:
+````
+docker-compose up
+````
+Open second cmd in clonned repository, leaving the previous one running and type:
+````
+cd work-reporting-frontend/angular-app
+ng serve
+````
+Navigate to localhost:4200 to see a running application.
+## Architecture
 
 ### Base URL
 Staging endpoint: ``` localhost:8000 ```
@@ -207,3 +248,4 @@ Status: 400
     ]
 }
 ```
+
