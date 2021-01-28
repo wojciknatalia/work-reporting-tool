@@ -44,6 +44,7 @@ docker-compose up
 Open second cmd in clonned repository, leaving the previous one running and type:
 ````
 cd work-reporting-frontend/angular-app
+npm install
 ng serve
 ````
 Navigate to localhost:4200 to see a running application.
